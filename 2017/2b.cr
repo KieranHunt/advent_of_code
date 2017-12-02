@@ -1,3 +1,8 @@
+def get_divisor(index, row)
+  row[(index + 1)..(row.size)]
+    .find { |cell| (row[index] % cell) == 0 }
+end
+
 result =  File
   .read("2.txt")
   .strip
@@ -7,12 +12,10 @@ result =  File
   .map(&.reverse)
   .map do |row|
     (0...row.size).compact_map do |index|
-      divisor =
-        row[(index + 1)..(row.size)]
-          .find { |cell| (row[index] % cell) == 0 }
-      row[index] / divisor unless divisor.nil?
+      unless get_divisor(index, row).nil?
+        row[index] / get_divisor(index, row).not_nil!
+      end
     end.first
-  end
-  .reduce { |acc, i| acc + i }
+  end.reduce { |acc, i| acc + i }
 
 puts result
