@@ -16,7 +16,7 @@ HEREDOC
   Problem:  #{problem}
   Actual:   #{actual.inspect}
   Expected: #{solution.inspect}
-
+  \n
   HEREDOC
   raise "Incorrect solution!" if actual != solution
 end
