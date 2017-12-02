@@ -7,6 +7,7 @@ TESTING
 HEREDOC
 
 {
+  "1a" => "1343",
   "2a" => "45972",
   "2b" => "326"
 }.each do |problem, solution|
