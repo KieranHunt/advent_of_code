@@ -13,7 +13,7 @@ test: build
 	crystal test_all.cr
 
 install-toolchain:
-	command -v crystal || (command -v apt-get && (apt-get update && apt-get install apt-transport-https && curl https://dist.crystal-lang.org/apt/setup.sh | sudo bash && apt-get install build-essential crystal))
+	command -v crystal || (command -v apt-get && (apt-get update && apt-get install -y apt-transport-https && curl https://dist.crystal-lang.org/apt/setup.sh | sudo bash && apt-get install -y build-essential crystal))
 	command -v crystal || (command -v brew && brew install crystal)
 
 clean: install-toolchain
