@@ -12,6 +12,7 @@ result =  File
           .find { |cell| (row[index] % cell) == 0 }
       row[index] / divisor unless divisor.nil?
     end.first
-  end.reduce { |acc, i| acc + i }
+  end
+  .reduce { |acc, i| acc + i }
 
 puts result
