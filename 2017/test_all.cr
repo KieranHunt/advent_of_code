@@ -10,7 +10,8 @@ HEREDOC
   "1a" => "1343",
   "1b" => "1274",
   "2a" => "45972",
-  "2b" => "326"
+  "2b" => "326",
+  "3a" => "419"
 }.each do |problem, solution|
   actual = `./#{problem}`.strip
   puts <<-HEREDOC
