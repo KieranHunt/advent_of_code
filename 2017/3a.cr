@@ -1,9 +1,3 @@
-# Algorithm::
-# Look for the closest *odd* square numbers above and below the input.
-# Once found, divide the space between them into 4.
-# Find which of the 4 quadrants the input is in.
-# Answer is the lower sqrt(square number) + the distance of the input to half way along it's quadrant.
-
 input = 289326
 
 lower_square_root = Math.sqrt(input).floor.to_i
