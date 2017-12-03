@@ -16,6 +16,7 @@ result =  File
         row[index] / get_divisor(index, row).not_nil!
       end
     end.first
-  end.reduce { |acc, i| acc + i }
+  end
+  .reduce { |acc, i| acc + i }
 
 puts result
