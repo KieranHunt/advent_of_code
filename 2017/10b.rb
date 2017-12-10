@@ -36,20 +36,9 @@ end
     end
 end
 
-dense_hash = []
-
-rope
-  .each_slice(16) { |slice| dense_hash << slice.reduce(0, &:^) }
-
-result = dense_hash
+puts rope
+  .each_slice(16)
+  .map { |slice| slice.reduce(0, &:^) }
   .map { |block| block.to_s(16) }
-  .map do |i|
-    if i.size == 1
-      "0#{i}"
-    else
-      i
-    end
-  end
+  .map { |item| "#{'0' * (2 - item.size)}#{item}" }
   .join
-
-puts result
