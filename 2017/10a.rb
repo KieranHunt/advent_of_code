@@ -13,7 +13,7 @@ class Array
   end
 
   def []=(index, value)
-    self.old_setter(index % self.size, value)
+    old_setter(index % self.size, value)
   end
 end
 
