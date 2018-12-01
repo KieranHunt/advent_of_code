@@ -1,0 +1,24 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'Advent of Code 2018'
+
+Resources:
+  AoC2018Function1:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: 1.solve
+      Runtime: ruby2.5
+      Events:
+        HTTPPost:
+          Type: Api
+          Properties:
+            Path: '/2018/1'
+            Method: post
+
+Outputs:
+  1AFunction:
+    Description: Advent of Code 2018 Day 1 Function
+    Value:
+      Fn::GetAtt:
+      - AoC2018Function1
+      - Arn

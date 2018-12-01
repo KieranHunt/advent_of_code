@@ -1,8 +1,8 @@
+require 'json'
+
 def solve_a(input)
-  result = parse_input(input)
+  parse_input(input)
     .reduce(0, &:+)
-    
-  puts result
 end
 
 def solve_b(input)
@@ -17,7 +17,7 @@ def solve_b(input)
       end
       memo[memo['current']] = true
     end 
-  puts result
+  result
 end
 
 def parse_input(input)
@@ -27,8 +27,18 @@ def parse_input(input)
     .map(&:to_i)
 end
 
+def solve(event:, context:)
+  part = event['queryStringParameters']['part']
+  input = event['body']
+  /a-z/.match? part
+  result = send("solve_#{part}".to_s, input)
+  { statusCode: '200', headers: {}, body: result.to_json }
+rescue => e
+  { statusCode: '500', headers: {}, body: e.to_json }
+end 
+
 if $0 == __FILE__
   file_name, part = ARGV
   input = File.read(file_name)
-  send("solve_#{part}".to_s, input)
+  puts send("solve_#{part}".to_s, input)
 end
